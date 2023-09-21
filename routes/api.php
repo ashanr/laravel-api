@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::post('user', 'UserController@create');
+Route::put('user/{id}', 'UserController@update');
+Route::get('user/{id}', 'UserController@show');
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
