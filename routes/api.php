@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use app/Http/Controllers/UserController;
+// use app/Http/Controllers/UserController;
 
 /*
 |--------------------------------------------------------------------------
