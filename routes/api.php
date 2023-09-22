@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use app/Http/Controllers/UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+error_log("API routes file loaded");
+
 Route::post('user', 'UserController@create');
 Route::put('user/{id}', 'UserController@update');
 Route::get('user/{id}', 'UserController@show');
