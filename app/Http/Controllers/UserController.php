@@ -27,18 +27,30 @@ class UserController extends Controller
 
         return response()->json(['message' => 'User created']);
     } catch (ValidationException $e) {
-        return response()->json(['errors' => $e->errors()], 422);
+      
     }
 
     }
 
     public function update(Request $request, $id)
     {
+
+        try{
+         // Validate incoming request
+         $request->validate([
+            'name' => 'string|min:10|max:255',
+            'email' => 'email|unique:users,email'
+        ]);
+
         $user = User::find($id);
         // Update fields
         $user->save();
 
         return response()->json(['message' => 'User updated']);
+        } catch (ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 422);
+        }
+
     }
 
     public function show($id)

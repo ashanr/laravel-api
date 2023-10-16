@@ -18,6 +18,10 @@ use App\Http\Controllers\UserController;
 
 error_log("API routes file loaded");
 
+//Auth Routes
+Route::post('/login', [AuthController::class, 'login']);
+
+//User Management Routes
 Route::post('user', [UserController::class, 'create']);
 Route::put('user/{id}', [UserController::class, 'update']);
 Route::get('user/{id}', [UserController::class, 'show']);
