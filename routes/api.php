@@ -21,7 +21,10 @@ error_log("API routes file loaded");
 
 //Auth Routes
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/csrf-token', [AuthController::class , 'getCsrfToken']);
+
+Route::middleware(['web'])->group(function () {
+    Route::get('/csrf-token', [AuthController::class , 'getCsrfToken']);
+});
 
 
 //User Management Routes
