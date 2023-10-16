@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // use app/Http/Controllers/UserController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,6 +21,8 @@ error_log("API routes file loaded");
 
 //Auth Routes
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/csrf-token', [AuthController::class , 'getCsrfToken']);
+
 
 //User Management Routes
 Route::post('user', [UserController::class, 'create']);

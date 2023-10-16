@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -27,5 +28,13 @@ class AuthController extends Controller
             return response()->json(['errors' => $e->errors()], 422);
         }
 
+    }
+
+    // retrieve a csrf token for the session
+    public function getCsrfToken()
+    {
+        return response()->json([
+            'csrfToken' => Session::token()
+        ]);
     }
 }
